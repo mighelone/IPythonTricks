@@ -51,9 +51,9 @@ class DictValueTable(dict):
         return self[item]['val']
 
     def set(self, item, value):
-        from copy import deepcopy
-        d = deepcopy(self)
-        d[item]['val'] = value
+        d = {k: v for k, v in self.iteritems()}
+        i = {'val': value, 'label': self[item]['label']}
+        d[item] = i
         return DictValueTable(d)
 
     def _repr_html_(self):
