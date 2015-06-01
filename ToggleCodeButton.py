@@ -9,7 +9,7 @@ class NotebookObject():
     def _repr_html_(self):
         return self.code_block 
 
-NotebookObject('''<script>
+TogleCodeButton = NotebookObject('''<script>
 code_show=false; 
 function code_toggle() {
  if (code_show){
