@@ -51,7 +51,8 @@ class DictValueTable(dict):
         return self[item]['val']
 
     def set(self, item, value):
-        d = {item: value for item, value in self.iteritems()}
+        d = dict()
+        d = d.update({item: value for item, value in self.iteritems()})
         d[item]['val'] = value
         return DictValueTable(d)
 
