@@ -51,8 +51,8 @@ class DictValueTable(dict):
         return self[item]['val']
 
     def set(self, item, value):
-        d = dict()
-        d.update({item: value for item, value in self.iteritems()})
+        from copy import deepcopy
+        d = deepcopy(self)
         d[item]['val'] = value
         return DictValueTable(d)
 
