@@ -53,7 +53,7 @@ class DictValueTable(dict):
     def _repr_html_(self):
         html = ["<table width=100%>"]
         for key, subdict in self.iteritems():
-            for disc, value in suvdict.iteritems(): 
+            for disc, value in subdict.iteritems(): 
                 html.append("<tr>")
                 html.append("<td>{0}</td>".format(disc))
                 html.append("<td>{0}</td>".format(value))
