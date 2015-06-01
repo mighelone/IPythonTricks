@@ -50,6 +50,11 @@ class DictValueTable(dict):
     def __getattr__(self, item):
         return self[item]['val']
 
+    def set(self, item, value):
+        d = {item: value for item, value in self.iteritems()}
+        d[item] = value
+        return d
+
     def _repr_html_(self):
         html = ["<table width=100%>"]
         for key, subdict in self.iteritems():
