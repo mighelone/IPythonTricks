@@ -52,8 +52,8 @@ class DictValueTable(dict):
 
     def set(self, item, value):
         d = {item: value for item, value in self.iteritems()}
-        d[item] = value
-        return d
+        d[item]['val'] = value
+        return DictValueTable(d)
 
     def _repr_html_(self):
         html = ["<table width=100%>"]
