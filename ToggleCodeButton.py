@@ -54,7 +54,7 @@ class DictValueTable(dict):
         html = ["<table width=100%>"]
         for key, subdict in self.iteritems():
             dis = subdict['label']
-            val = subdict['value']
+            val = subdict['val']
             html.append("<tr>")
             html.append("<td>{0}</td>".format(dis))
             html.append("<td>{0}</td>".format(val))
