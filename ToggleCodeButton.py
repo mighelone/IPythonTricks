@@ -42,7 +42,7 @@ class DictTable(dict):
         html.append("</table>")
         return ''.join(html)
 
-class DictValueTable
+class DictValueTable(dict):
     # Overridden dict class which takes a dict in the form {'a': {'val':'foo',
     #                                                             'label':'foo [b]'
     #                                                        },
