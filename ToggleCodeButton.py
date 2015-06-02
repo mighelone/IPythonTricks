@@ -37,7 +37,7 @@ class DictTable(dict):
         for key, value in self.iteritems():
             html.append("<tr>")
             html.append("<td>{0}</td>".format(key))
-            html.append("<td>{:.4f}</td>".format(value))
+            html.append("<td>{:.4}</td>".format(value))
             html.append("</tr>")
         html.append("</table>")
         return ''.join(html)
@@ -47,6 +47,8 @@ class DictValueTable(dict):
     #                                                             'label':'foo [b]'
     #                                                        },
     # and renders an HTML Table in IPython Notebook.
+    value_format = "{:.4}"
+
     def __getattr__(self, item):
         return self[item]['val']
 
@@ -63,7 +65,8 @@ class DictValueTable(dict):
             val = subdict['val']
             html.append("<tr>")
             html.append("<td>{0}</td>".format(dis))
-            html.append("<td>{:.4f}</td>".format(val))
+            value = "<td>" + self.value_format + "</td>"
+            html.append(value.format(float(val)))
             html.append("</tr>")
         html.append("</table>")
         return ''.join(html)
