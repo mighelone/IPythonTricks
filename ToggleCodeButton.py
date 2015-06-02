@@ -37,7 +37,7 @@ class DictTable(dict):
         for key, value in self.iteritems():
             html.append("<tr>")
             html.append("<td>{0}</td>".format(key))
-            html.append("<td>{:.4%}</td>".format(value))
+            html.append("<td>{:.4}</td>".format(value))
             html.append("</tr>")
         html.append("</table>")
         return ''.join(html)
@@ -63,7 +63,7 @@ class DictValueTable(dict):
             val = subdict['val']
             html.append("<tr>")
             html.append("<td>{0}</td>".format(dis))
-            html.append("<td>{:.4%}</td>".format(val))
+            html.append("<td>{:.4}</td>".format(val))
             html.append("</tr>")
         html.append("</table>")
         return ''.join(html)
