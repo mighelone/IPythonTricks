@@ -33,11 +33,11 @@ class DictTable(dict):
         return self[item]
 
     def _repr_html_(self):
-        html = ["<table width=100%>"]
+        html = ["<table >"]
         for key, value in self.iteritems():
             html.append("<tr>")
             html.append("<td>{0}</td>".format(key))
-            html.append("<td>{:.4}</td>".format(value))
+            html.append("<td>{:.4f}</td>".format(value))
             html.append("</tr>")
         html.append("</table>")
         return ''.join(html)
@@ -57,13 +57,13 @@ class DictValueTable(dict):
         return DictValueTable(d)
 
     def _repr_html_(self):
-        html = ["<table width=100%>"]
+        html = ["<table >"]
         for key, subdict in self.iteritems():
             dis = subdict['label']
             val = subdict['val']
             html.append("<tr>")
             html.append("<td>{0}</td>".format(dis))
-            html.append("<td>{:.4}</td>".format(val))
+            html.append("<td>{:.4f}</td>".format(val))
             html.append("</tr>")
         html.append("</table>")
         return ''.join(html)
