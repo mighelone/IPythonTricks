@@ -45,13 +45,21 @@ class DictTable(dict):
             html.append("<caption>{}</caption>".format(self.caption))
         if self.name: # append a head
             html.append("<tr>")
-            html.append("<th> </td>")
-            html.append("<th>{}</td>".format(self.name))
+            html.append("<th> </th>")
+            if isinstance(self.name, list):
+                for n in self.names:
+                    html.append("<th>{}</th>".format(n))
+            else:
+                html.append("<th>{}</th>".format(self.name))
             html.append("</tr>")
         for key, value in self.d.iteritems():
             html.append("<tr>")
             html.append("<td>{0}</td>".format(key))
-            html.append("<td>{:.4}</td>".format(value))
+            if isinstance(value, list):
+                for v in value:
+                    html.append("<td>{:.4}</td>".format(v))
+            else:
+                html.append("<td>{:.4}</td>".format(value))
             html.append("</tr>")
         html.append("</table>")
         return ''.join(html)
