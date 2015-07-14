@@ -30,10 +30,11 @@ class DictTable(dict):
     # Overridden dict class which takes a dict in the form {'a': 2, 'b': 3},
     # and renders an HTML Table in IPython Notebook.
 
-    def __init__(self, d, name=None):
+    def __init__(self, d, name=None, caption=None):
 
         self.d = d
         self.name = name
+        self.caption = caption
 
     def __getattr__(self, item):
         return self.d[item]
@@ -42,8 +43,8 @@ class DictTable(dict):
         html = ["<table >"]
         if self.name: # append a head
             html.append("<tr>")
-            html.append("<td> </td>")
-            html.append("<td>{}</td>".format(self.name))
+            html.append("<th> </td>")
+            html.append("<th>{}</td>".format(self.name))
             html.append("</tr>")
         for key, value in self.d.iteritems():
             html.append("<tr>")
