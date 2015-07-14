@@ -47,7 +47,7 @@ class DictTable(dict):
             html.append("<tr>")
             html.append("<th> </th>")
             if isinstance(self.name, list):
-                for n in self.names:
+                for n in self.name:
                     html.append("<th>{}</th>".format(n))
             else:
                 html.append("<th>{}</th>".format(self.name))
