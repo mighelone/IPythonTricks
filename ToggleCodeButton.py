@@ -45,7 +45,7 @@ class DictTable(dict):
             html.append("<td> </td>")
             html.append("<td>{}</td>".format(self.name))
             html.append("</tr>")
-        for key, value in self.iteritems():
+        for key, value in self.d.iteritems():
             html.append("<tr>")
             html.append("<td>{0}</td>".format(key))
             html.append("<td>{:.4}</td>".format(value))
