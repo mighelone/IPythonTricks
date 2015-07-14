@@ -69,6 +69,11 @@ def below(*pargs):
         them below each other """
     return HTML(' '.join([_._repr_html_() for _ in pargs]))
 
+def side(*elems):
+    """ takes n html renderable objects and places them side by side """
+    joined = "<div>" + "</div><div>".join([elem._repr_html_() for elem in elems]) + "</div>"
+    return HTML("<style>  #aligned div {{float: left; margin: 1em;}} </style> <div id=aligned> {} </div>".format(joined))
+
 class DictValueTable(dict):
     # Overridden dict class which takes a dict in the form {'a': {'val':'foo',
     #                                                             'label':'foo [b]'
