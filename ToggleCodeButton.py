@@ -59,8 +59,7 @@ class DictTable(dict):
 def below(*pargs):
     """ takes n html renderable objects and places 
         them below each other """
-    
-    return ' '.join([_._repr_html_() for _ in pargs]) 
+    return HTML(' '.join([_._repr_html_() for _ in pargs]))
 
 class DictValueTable(dict):
     # Overridden dict class which takes a dict in the form {'a': {'val':'foo',
