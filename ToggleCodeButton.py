@@ -41,6 +41,8 @@ class DictTable(dict):
 
     def _repr_html_(self):
         html = ["<table >"]
+        if self.caption:
+            html.append("<caption>{}</caption>".format(self.caption))
         if self.name: # append a head
             html.append("<tr>")
             html.append("<th> </td>")
