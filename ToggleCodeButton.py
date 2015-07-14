@@ -29,11 +29,22 @@ EnableEquationNumbers = NotebookObject(""" <script type="text/Javascript"> MathJ
 class DictTable(dict):
     # Overridden dict class which takes a dict in the form {'a': 2, 'b': 3},
     # and renders an HTML Table in IPython Notebook.
+
+    def __init__(self, d, name=None):
+
+        self.d = d
+        self.name = name
+
     def __getattr__(self, item):
-        return self[item]
+        return self.d[item]
 
     def _repr_html_(self):
         html = ["<table >"]
+        if self.name: # append a head
+            html.append("<tr>")
+            html.append("<td> </td>")
+            html.append("<td>{}</td>".format(self.name))
+            html.append("</tr>")
         for key, value in self.iteritems():
             html.append("<tr>")
             html.append("<td>{0}</td>".format(key))
