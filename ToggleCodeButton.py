@@ -96,7 +96,7 @@ class DictValueTable(dict):
 
     def _repr_html_(self):
         html = ["<table >"]
-        for key, subdict in self.d.diteritems():
+        for key, subdict in self.d.iteritems():
             dis = subdict['label']
             val = subdict['val']
             html.append("<tr>")
