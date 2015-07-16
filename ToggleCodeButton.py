@@ -81,18 +81,22 @@ class DictValueTable(dict):
     # and renders an HTML Table in IPython Notebook.
     value_format = "{:.4}"
 
+    def __init__(self, d):
+        self.d = d
+        self.vals = {key: values['val'] for key, value in d.iteritems()}
+
     def __getattr__(self, item):
-        return self[item]['val']
+        return self.d[item]['val']
 
     def set(self, item, value):
-        d = {k: v for k, v in self.iteritems()}
-        i = {'val': value, 'label': self[item]['label']}
+        d = {k: v for k, v in self.d.iteritems()}
+        i = {'val': value, 'label': self.d[item]['label']}
         d[item] = i
         return DictValueTable(d)
 
     def _repr_html_(self):
         html = ["<table >"]
-        for key, subdict in self.iteritems():
+        for key, subdict in self.d.diteritems():
             dis = subdict['label']
             val = subdict['val']
             html.append("<tr>")
