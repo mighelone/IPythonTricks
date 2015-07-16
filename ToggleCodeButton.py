@@ -83,7 +83,7 @@ class DictValueTable(dict):
 
     def __init__(self, d):
         self.d = d
-        self.vals = {key: values['val'] for key, value in d.iteritems()}
+        self.vals = {key: value['val'] for key, value in d.iteritems()}
 
     def __getattr__(self, item):
         return self.d[item]['val']
